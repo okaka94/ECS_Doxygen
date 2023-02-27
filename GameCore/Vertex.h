@@ -2,6 +2,13 @@
 #include "DXTK/SimpleMath.h"
 
 using namespace DirectX::SimpleMath;
+
+/**
+ * @class Vertex
+ * @brief [인풋 데이터]정점의 PNCT 정보를 저장한다.
+ * @details 생성자를 통해 구조체 내의 PNCT 멤버 값을 초기화한다. DirectX::SimpleMath 라이브러리의 자료형을 사용하며
+ * member initializer 방식으로 초기화한다.
+*/
 struct Vertex
 {
 	Vector3 Pos;

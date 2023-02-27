@@ -44,17 +44,6 @@
     <Filter Include="DirectX\Data">
       <UniqueIdentifier>{d0dcee0d-974c-4617-b439-9332bb54a732}</UniqueIdentifier>
     </Filter>
-    <Filter Include="WinAPI">
-      <UniqueIdentifier>{39ce7d6d-82a9-4293-b4c0-5b68c90bc392}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="WinAPI\소스 파일">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="WinAPI\헤더 파일">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
     <Filter Include="Sound\소스 파일">
       <UniqueIdentifier>{72a9d2a1-ca14-493b-8d4a-104df781d1bf}</UniqueIdentifier>
     </Filter>
@@ -70,19 +59,30 @@
     <Filter Include="DirectX\HLSL\GeometryShader">
       <UniqueIdentifier>{5ec82df0-2f9f-4725-86c3-069a8dcfdf6d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Sound\헤더 파일\WinAPI">
+      <UniqueIdentifier>{39ce7d6d-82a9-4293-b4c0-5b68c90bc392}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sound\헤더 파일\WinAPI\소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Sound\헤더 파일\WinAPI\헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Define.h">
       <Filter>Common</Filter>
     </ClInclude>
     <ClInclude Include="WindowsClient.h">
-      <Filter>WinAPI\헤더 파일</Filter>
+      <Filter>Sound\헤더 파일\WinAPI\헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="ECSCommon.hpp">
       <Filter>ECS</Filter>
     </ClInclude>
     <ClInclude Include="Input.hpp">
-      <Filter>WinAPI\헤더 파일</Filter>
+      <Filter>Sound\헤더 파일\WinAPI\헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Actor.h">
       <Filter>ECS\Entity</Filter>
@@ -139,7 +139,7 @@
       <Filter>Core</Filter>
     </ClInclude>
     <ClInclude Include="Timer.hpp">
-      <Filter>WinAPI\헤더 파일</Filter>
+      <Filter>Sound\헤더 파일\WinAPI\헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="DXShaderManager.h">
       <Filter>DirectX</Filter>
@@ -216,10 +216,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="WindowsClient.cpp">
-      <Filter>WinAPI\소스 파일</Filter>
+      <Filter>Sound\헤더 파일\WinAPI\소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Input.cpp">
-      <Filter>WinAPI\소스 파일</Filter>
+      <Filter>Sound\헤더 파일\WinAPI\소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="DXDevice.cpp">
       <Filter>DirectX</Filter>
@@ -234,7 +234,7 @@
       <Filter>Core</Filter>
     </ClCompile>
     <ClCompile Include="Timer.cpp">
-      <Filter>WinAPI\소스 파일</Filter>
+      <Filter>Sound\헤더 파일\WinAPI\소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="DXShaderManager.cpp">
       <Filter>DirectX</Filter>
