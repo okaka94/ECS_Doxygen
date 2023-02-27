@@ -1,6 +1,7 @@
 #pragma once
 #include "Define.h"
 
+// 현재 미사용 클래스
 class DXShader
 {
 	// Device
