@@ -133,32 +133,128 @@ public:
 	*/
 	ID3D11Buffer* CreateIndexBuffer(const std::vector<DWORD>& indices);
 
+	/**
+	* @brief 상수 버퍼를 생성한다.
+	* @param constantData [템플릿 인자]
+	* @return 버퍼 생성 실패시 nullptr을 리턴, 성공시 버퍼 포인터를 BufferList에 추가 후 리턴한다.
+	*/
 	template <typename T>
 	ID3D11Buffer* CreateConstantBuffer(const T& constantData);
 
+	/**
+	* @brief 아웃풋 버퍼를 생성한다.
+	* @param size 버퍼 사이즈
+	* @return 버퍼 생성 실패시 nullptr을 리턴, 성공시 버퍼 포인터를 BufferList에 추가 후 리턴한다.
+	*/
 	ID3D11Buffer* CreateStreamOutputBuffer(UINT size);
+
+	/**
+	* @brief 현재 미사용
+	* @param size 버퍼 사이즈
+	* @return nullptr
+	*/
 	ID3D11Buffer* CreateMappedBuffer(UINT size);
 
 public:
+	/**
+	 * @brief 디바이스와 컨텍스트를 멤버에 할당해준다.
+	 * @param[in] device 디바이스
+	 * @param[in] context 디바이스 컨텍스트
+	*/
 	void SetDevice(ID3D11Device* device, ID3D11DeviceContext* context);
 
 public:
+	/**
+	 * @brief 인풋 레이아웃 맵에서 지정한 타입의 인풋 레이아웃을 받아온다.
+	 * @param[in] type 인풋 레이아웃 타입
+	 * @return 맵에 찾는 타입이 없다면 nullptr을 리턴하고, 존재하면 인풋 레이아웃 포인터를 리턴한다.
+	*/
 	ID3D11InputLayout* GetInputLayout(InputLayoutType type);
 
+	/**
+	 * @brief 셰이더 코드 맵을 검색해 셰이더 코드를 얻기위한 ID3DBlob 포인터를 받아온다.
+	 * @param[in] key 파일명
+	 * @return 검색 결과가 존재하면 포인터를 리턴한다.
+	*/
 	ID3DBlob* GetVSCode(std::wstring key);
+
+	/**
+	 * @brief 셰이더 코드 맵을 검색해 셰이더 코드를 얻기위한 ID3DBlob 포인터를 받아온다.
+	 * @param[in] key 파일명
+	 * @return 검색 결과가 존재하면 포인터를 리턴한다.
+	*/
 	ID3DBlob* GetHSCode(std::wstring key);
+
+	/**
+	 * @brief 셰이더 코드 맵을 검색해 셰이더 코드를 얻기위한 ID3DBlob 포인터를 받아온다.
+	 * @param[in] key 파일명
+	 * @return 검색 결과가 존재하면 포인터를 리턴한다.
+	*/
 	ID3DBlob* GetDSCode(std::wstring key);
+
+	/**
+	 * @brief 셰이더 코드 맵을 검색해 셰이더 코드를 얻기위한 ID3DBlob 포인터를 받아온다.
+	 * @param[in] key 파일명
+	 * @return 검색 결과가 존재하면 포인터를 리턴한다.
+	*/
 	ID3DBlob* GetGSCode(std::wstring key);
+
+	/**
+	 * @brief 셰이더 코드 맵을 검색해 셰이더 코드를 얻기위한 ID3DBlob 포인터를 받아온다.
+	 * @param[in] key 파일명
+	 * @return 검색 결과가 존재하면 포인터를 리턴한다.
+	*/
 	ID3DBlob* GetPSCode(std::wstring key);
 
+
+	/**
+	 * @brief 셰이더 맵을 검색해 셰이더 포인터를 받아온다.
+	 * @param[in] key 파일명
+	 * @return 검색 결과가 존재하면 포인터를 리턴한다.
+	*/
 	ID3D11VertexShader*		GetVertexShader(std::wstring key);
+
+	/**
+	  * @brief 셰이더 맵을 검색해 셰이더 포인터를 받아온다.
+	  * @param[in] key 파일명
+	  * @return 검색 결과가 존재하면 포인터를 리턴한다.
+	*/
 	ID3D11HullShader*		GetHullShader(std::wstring key);
+
+	/**
+	  * @brief 셰이더 맵을 검색해 셰이더 포인터를 받아온다.
+	  * @param[in] key 파일명
+	  * @return 검색 결과가 존재하면 포인터를 리턴한다.
+	*/
 	ID3D11DomainShader*		GetDomainShader(std::wstring key);
+
+	/**
+	  * @brief 셰이더 맵을 검색해 셰이더 포인터를 받아온다.
+	  * @param[in] key 파일명
+	  * @return 검색 결과가 존재하면 포인터를 리턴한다.
+	*/
 	ID3D11GeometryShader*	GetGeometryShader(std::wstring key);
+
+	/**
+	  * @brief 셰이더 맵을 검색해 셰이더 포인터를 받아온다.
+	  * @param[in] key 파일명
+	  * @return 검색 결과가 존재하면 포인터를 리턴한다.
+	*/
 	ID3D11PixelShader*		GetPixelShader(std::wstring key);
 	
 public:
+	/**
+	  * @brief 셰이더 매니저 클래스의 초기화 작업을 수행한다.
+	  * @detail 정점 셰이더 파일(VS_StaticMesh , VS_SkeletalMesh)을 컴파일하고
+	  * 픽셀 셰이더 파일(PS_Default , PS_Light)을 컴파일 한 후 정점 셰이더와 픽셀 셰이더, 인풋 레이아웃을 생성한다.
+	  * @return 오류가 없었다면 true를 리턴한다.
+	*/
 	bool Initialize();
+
+	/**
+	  * @brief 셰이더 매니저 클래스의 Release 작업을 수행한다.
+	  * @return 오류가 없었다면 true를 리턴한다.
+	*/
 	bool Release();
 };
 
