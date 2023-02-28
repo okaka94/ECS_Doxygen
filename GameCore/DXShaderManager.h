@@ -1,12 +1,20 @@
 #pragma once
 #include "Define.h"
 
+/**
+	* @class InputLayoutType
+	* @brief 스태틱 메시와 스켈레탈 메시로 구분되는 열거형 클래스이다. 
+	*/
 enum class InputLayoutType
 {
 	StaticMesh,
 	SkeletalMesh
 };
 
+/**
+ * @class DXShaderManager
+ * @brief [싱글톤]셰이더를 관리하는 매니저 클래스이다.
+*/
 class DXShaderManager : public Singleton<DXShaderManager>
 {
 private:
@@ -37,22 +45,92 @@ private:
 	virtual ~DXShaderManager() { Release(); };
 
 public:
+	/**
+		* @brief 기존에 생성된 정점 셰이더 코드가 없다면 새롭게 생성 후 코드 맵에 삽입한다.
+		* @param filename 파일명
+		* @return 오류가 없었다면 true를 리턴한다.
+	*/
 	bool LoadVSCode(std::wstring filename);
+
+	/**
+	* @brief 기존에 생성된 헐 셰이더 코드가 없다면 새롭게 생성 후 코드 맵에 삽입한다.
+	* @param filename 파일명
+	* @return 오류가 없었다면 true를 리턴한다.
+	*/
 	bool LoadHSCode(std::wstring filename);
+
+	/**
+	* @brief 기존에 생성된 도메인 셰이더 코드가 없다면 새롭게 생성 후 코드 맵에 삽입한다.
+	* @param filename 파일명
+	* @return 오류가 없었다면 true를 리턴한다.
+	*/
 	bool LoadDSCode(std::wstring filename);
+
+	/**
+	* @brief 기존에 생성된 기하 셰이더 코드가 없다면 새롭게 생성 후 코드 맵에 삽입한다.
+	* @param filename 파일명
+	* @return 오류가 없었다면 true를 리턴한다.
+	*/
 	bool LoadGSCode(std::wstring filename);
+
+	/**
+	* @brief 기존에 생성된 픽셀 셰이더 코드가 없다면 새롭게 생성 후 코드 맵에 삽입한다.
+	* @param filename 파일명
+	* @return 오류가 없었다면 true를 리턴한다.
+	*/
 	bool LoadPSCode(std::wstring filename);
 
+	/**
+	* @brief 코드 맵에 있는 모든 셰이더 코드를 불러와 셰이더를 생성 후 셰이더 맵에 삽입한다.
+	* @return 오류가 없었다면 true를 리턴한다.
+	*/
 	bool CreateVertexShader();
+
+	/**
+	* @brief 코드 맵에 있는 모든 셰이더 코드를 불러와 셰이더를 생성 후 셰이더 맵에 삽입한다.
+	* @return 오류가 없었다면 true를 리턴한다.
+	*/
 	bool CreatePixelShader();
+
+	/**
+	* @brief 코드 맵에 있는 모든 셰이더 코드를 불러와 셰이더를 생성 후 셰이더 맵에 삽입한다.
+	* @param decl ????
+	* @return 오류가 없었다면 true를 리턴한다.
+	*/
 	bool CreateGeometryShader(D3D11_SO_DECLARATION_ENTRY* decl);
 
+	/**
+	* @brief 스태틱 메시 인풋 레이아웃 생성 함수 호출 후 스켈레탈 메시 인풋 레이아웃 생성 함수를 호출한다.
+	* @return 스태틱 메시와 스켈레탈 메시 레이아웃이 모두 생성되면 true 값을 리턴한다.
+	*/
 	bool CreateInputLayout();
+
+	/**
+	* @brief "VS_StaticMesh.hlsl" 파일의 정점 셰이더 코드가 있다면 PNCT 형태의 인풋 레이아웃 생성 후 맵에 삽입한다.
+	* @return 오류가 없었다면 true를 리턴한다.
+	*/
 	bool CreateStaticMeshInputLayout();
+
+	/**
+	* @brief "VS_SkeletalMesh.hlsl" 파일의 정점 셰이더 코드가 있다면 PNCT 형태의 인풋 레이아웃 생성 후 맵에 삽입한다.
+	* @return 오류가 없었다면 true를 리턴한다.
+	*/
 	bool CreateSkeletalMeshInputLayout();
 
 public:
+
+	/**
+	* @brief 정점 버퍼를 생성한다.
+	* @param vertices 정점의 PNCT 정보가 담긴 벡터 컨테이너
+	* @return 버퍼 생성 실패시 nullptr을 리턴, 성공시 버퍼 포인터를 BufferList에 추가 후 리턴한다.
+	*/
 	ID3D11Buffer* CreateVertexBuffer(const std::vector<Vertex>& vertices);
+
+	/**
+	* @brief indices가 비어있지 않다면 인덱스 버퍼를 생성한다.
+	* @param indices DWORD 값이 담긴 벡터 컨테이너
+	* @return 버퍼 생성 실패시 nullptr을 리턴, 성공시 버퍼 포인터를 BufferList에 추가 후 리턴한다.
+	*/
 	ID3D11Buffer* CreateIndexBuffer(const std::vector<DWORD>& indices);
 
 	template <typename T>
