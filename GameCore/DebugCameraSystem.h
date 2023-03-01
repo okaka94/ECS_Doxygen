@@ -5,9 +5,18 @@
 #include "DebugCamera.h"
 #include "Input.hpp"
 
+/**
+	* @class DebugCameraSystem
+	* @brief 디버깅 카메라 시스템
+	*/
 class DebugCameraSystem : public ECS::System
 {
 public:
+	/**
+	 * @brief 월드의 디버깅 카메라와 프러스텀을 업데이트한다.
+	 * @param[in] world 월드
+	 * @param[in] time 시간
+	*/
 	virtual void Tick(ECS::World* world, float time) override
 	{
 		DebugCamera* debugCamera = world->GetDebugCamera();
