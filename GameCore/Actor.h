@@ -4,6 +4,10 @@
 #include "SkeletalMeshComponent.h"
 #include "MovementComponent.h"
 
+/**
+ * @class Actor
+ * @brief [E] ╬вем : <Movement> + <Transform>
+*/
 class Actor : public ECS::Entity
 {
 public:

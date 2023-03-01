@@ -7,7 +7,7 @@
 
 /**
 	* @class DebugCameraSystem
-	* @brief 디버깅 카메라 시스템
+	* @brief [S]디버깅 카메라 시스템
 	*/
 class DebugCameraSystem : public ECS::System
 {

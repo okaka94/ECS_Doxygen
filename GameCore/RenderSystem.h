@@ -4,7 +4,7 @@
 
 /**
  * @class RenderSystem
- * @brief 렌더링 시스템
+ * @brief [S]렌더링 시스템
 */
 class RenderSystem : public ECS::System
 {

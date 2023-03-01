@@ -5,7 +5,7 @@
 
 /**
  * @class LightSystem
- * @brief 조명 시스템
+ * @brief [S]조명 시스템
 */
 class LightSystem : public ECS::System
 {

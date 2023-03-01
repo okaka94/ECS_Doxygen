@@ -5,6 +5,11 @@
 #include "DebugCamera.h"
 #include "Entity.hpp"
 
+
+/**
+ * @class Landscape
+ * @brief [E]랜드스케이프 - 작업중
+*/
 class Landscape //: public ECS::Entity
 {
 private:

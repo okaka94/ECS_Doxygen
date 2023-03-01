@@ -5,7 +5,7 @@
 
 /**
  * @class MovementSystem
- * @brief 이동 시스템
+ * @brief [S]이동 시스템
 */
 class MovementSystem : public ECS::System
 {

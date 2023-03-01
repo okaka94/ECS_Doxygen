@@ -6,7 +6,7 @@
 
 /**
  * @class CameraSystem
- * @brief 카메라 시스템
+ * @brief [S]카메라 시스템
 */
 class CameraSystem : public ECS::System
 {

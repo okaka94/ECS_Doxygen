@@ -1,6 +1,10 @@
 #pragma once
 #include "Light.h"
 
+/**
+ * @class DirectionalLight
+ * @brief [E] Directional Light : <Movement> + <Transform> + <DirectionalLightComponent>
+*/
 class DirectionalLight : public Light
 {
 public:

@@ -1,6 +1,10 @@
 #pragma once
 #include "Light.h"
 
+/**
+ * @class SpotLight
+ * @brief [E]Spot Light : <Movement> + <Transform> + <SpotLightComponent>
+*/
 class SpotLight : public Light
 {
 public:

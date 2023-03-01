@@ -4,6 +4,10 @@
 #include "TransformComponent.h"
 #include "LightComponent.h"
 
+/**
+ * @class Light
+ * @brief [E]Α¶Έν <Movement> + <Transform>
+*/
 class Light : public ECS::Entity
 {
 public:
