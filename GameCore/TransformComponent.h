@@ -1,6 +1,10 @@
 #pragma once
 #include "Define.h"
 
+/**
+ * @class TransformComponent
+ * @brief [C] T R S 벡터를 저장한다.
+*/
 class TransformComponent
 {
 public:

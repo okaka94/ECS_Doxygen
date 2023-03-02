@@ -6,6 +6,10 @@
 #include "DXShaderManager.h"
 #include "TransformComponent.h"
 
+/**
+ * @class StaticMeshComponent
+ * @brief [C] <MeshComponent> 리스트와 렌더링에 필요한 정보를 담고있다.
+*/
 class StaticMeshComponent
 {
 private:
@@ -30,11 +34,31 @@ public:
 	};
 
 public:
+
+	/**
+	 * @brief Meshes 리스트를 돌며 Render() 작업을 수행한다.
+	 * @return 오류가 없었다면 true를 리턴한다.
+	*/
 	bool Render();
+
+	/**
+	 * @brief isCreated가 false라면 인풋 레이아웃, 정점 셰이더, 상수 버퍼를 생성하고 isCreated를 true로 설정한다.
+	 * @return 오류가 없었다면 true를 리턴한다.
+	*/
 	bool Initialize();
 
 public:
+
+	/**
+	 * @brief 인자로 행렬을 받아 메시의 TransformData를 아핀 변환한다.
+	 * @param[in] transform T R S 값을 가진 구조체
+	*/
 	void UpdateTransformMatrix(const TransformComponent& transform);
+
+	/**
+	 * @brief 컨텍스트를 할당한다.
+	 * @param[in] context 디바이스 컨텍스트
+	*/
 	void SetContext(ID3D11DeviceContext* context);
 };
 

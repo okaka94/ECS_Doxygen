@@ -4,6 +4,10 @@
 #include "Material.h"
 #include "MeshComponent.hpp"
 
+/**
+ * @class SkeletalMeshComponent
+ * @brief [C] <MeshComponent> 리스트를 담고있다.
+*/
 class SkeletalMeshComponent
 {
 public:

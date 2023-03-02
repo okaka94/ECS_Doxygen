@@ -3,6 +3,10 @@
 #include "DXTexture.hpp"
 #include "DXDevice.hpp"
 
+/**
+ * @class Material
+ * @brief [C] 텍스처 리스트와 픽셀 셰이더로 구성되어있다.
+*/
 class Material
 {
 private:
@@ -15,12 +19,30 @@ public:
 	~Material();
 
 public:
+	/**
+	 * @brief 텍스처 리스트에 있는 텍스처들에 픽셀 셰이더를 적용한다.
+	 * @return 오류가 없었다면 true를 리턴한다.
+	*/
 	bool Apply();
 
 public:
+
+	/**
+	 * @brief 텍스처 리스트에 텍스처를 추가한다.
+	 * @return 오류가 없었다면 true를 리턴한다.
+	*/
 	bool AddTexture(DXTexture* texture);
+
+	/**
+	 * @brief 픽셀 셰이더를 설정한다.
+	 * @return 오류가 없었다면 true를 리턴한다.
+	*/
 	bool SetPixelShader(ID3D11PixelShader* pixelShader);
 
+	/**
+	 * @brief 컨텍스트를 할당한다.
+	 * @param[in] context 디바이스 컨텍스트
+	*/
 	void SetContext(ID3D11DeviceContext* context);
 };
 

@@ -1,6 +1,10 @@
 #pragma once
 #include "Define.h"
 
+/**
+ * @struct MovementComponent
+ * @brief [C] Location 벡터, Forward 벡터, Speed로 구성되어있다.
+*/
 struct MovementComponent
 {
 	Vector3 Location;

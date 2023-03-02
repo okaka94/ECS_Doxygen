@@ -1,6 +1,10 @@
 #pragma once
 #include "Camera.h"
 
+/**
+ * @class DebugCamera
+ * @brief [C] Speed + YPR(rotation)
+*/
 class DebugCamera : public Camera
 {
 public:

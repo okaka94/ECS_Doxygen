@@ -5,6 +5,11 @@
 #include "DXDevice.hpp"
 #include "DXShaderManager.h"
 
+
+/**
+ * @struct Face
+ * @brief 정점 3개로 구성된 페이스 구조체이다.
+*/
 struct Face
 {
 	Vertex V0;
@@ -24,6 +29,11 @@ struct Face
 	}
 };
 
+
+/**
+ * @class MeshComponent
+ * @brief [C] 정점, 페이스, 인덱스 정보 등 렌더링을 위한 데이터를 담고있다.
+*/
 class MeshComponent
 {
 public:
@@ -54,10 +64,23 @@ public:
 	}
 
 public:
+	/**
+	 * @brief isCreated가 false라면 초기화 후 렌더링 작업을 수행한다.
+	 * @return 오류가 없었다면 true를 리턴한다.
+	*/
 	bool Render();
+
+	/**
+	 * @brief isCreated가 false라면 정점 버퍼와 인덱스 버퍼 생성하고 MaterialSlot을 채운 뒤 isCreated를 true로 설정한다.
+	 * @return 오류가 없었다면 true를 리턴한다.
+	*/
 	bool Initialize();
 
 public:
+	/**
+	 * @brief 컨텍스트를 할당한다.
+	 * @param[in] context 디바이스 컨텍스트
+	*/
 	void SetContext(ID3D11DeviceContext* context) { Context = context; };
 };
 
